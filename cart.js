@@ -15,7 +15,7 @@ function processMessage(message) {
 // Function to handle adding item to the cart
 function addToCart(product) {
   cart.push(product);
-  displayNotification(`The ${product.name} added to cart successfully`);
+  displayNotification(`${product.name} added to cart successfully`);
 }
 
 // Function to display Bootstrap alert notification
@@ -25,9 +25,7 @@ function displayNotification(message) {
   const alert = `
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       ${message}
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   `;
   
