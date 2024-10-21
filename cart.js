@@ -1,7 +1,5 @@
-// Simulated cart array
 const cart = [];
 
-// Message-passing middleware function to handle cart actions
 function processMessage(message) {
   switch (message.type) {
     case 'ADD_TO_CART':
@@ -12,13 +10,13 @@ function processMessage(message) {
   }
 }
 
-// Function to handle adding item to the cart
+
 function addToCart(product) {
   cart.push(product);
   displayNotification(`${product.name} added to cart successfully`);
 }
 
-// Function to display Bootstrap alert notification
+
 function displayNotification(message) {
   const notificationDiv = document.getElementById('notification');
   
@@ -32,14 +30,14 @@ function displayNotification(message) {
   notificationDiv.innerHTML = alert;
 }
 
-// Event listener for "Add to Cart" buttons
+
 document.querySelectorAll('.add-to-cart').forEach(button => {
   button.addEventListener('click', (event) => {
     const productElement = event.target.closest('.product');
     const productId = productElement.getAttribute('data-product-id');
     const productName = productElement.getAttribute('data-product-name');
 
-    // Create message object
+
     const message = {
       type: 'ADD_TO_CART',
       payload: {
@@ -48,7 +46,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
       }
     };
 
-    // Send message to middleware for processing
+
     processMessage(message);
   });
 });
